@@ -1,42 +1,49 @@
-# PHP image
+# PHP + Apache base image
 FROM php:8.3-apache
 
-# enable required packages and gd lib
+# ------------------------------------------------------------
+# 1️⃣ Install required libraries (GD, ZIP, MySQL)
+# ------------------------------------------------------------
 RUN apt-get update && apt-get install -y \
     libwebp-dev libxpm-dev zlib1g-dev \
-    libfreetype6-dev \
-    libjpeg62-turbo-dev \
-    libpng-dev \
-    libzip-dev \
-    unzip \
+    libfreetype6-dev libjpeg62-turbo-dev libpng-dev libzip-dev unzip \
     && docker-php-ext-configure gd --with-freetype --with-jpeg \
     && docker-php-ext-install -j$(nproc) gd zip mysqli \
-    && docker-php-ext-enable mysqli zip
+    && docker-php-ext-enable gd zip mysqli
 
-# enable mysqli
-RUN docker-php-ext-install mysqli && docker-php-ext-enable mysqli
-
-# set working directory
-WORKDIR /var/www/html/sngine
-
-# copy project files
-COPY . .
-
-# set server name >> localhost
-RUN echo "ServerName localhost" >> /etc/apache2/apache2.conf
-
-# enable apache rewrite mod
+# ------------------------------------------------------------
+# 2️⃣ Enable Apache modules
+# ------------------------------------------------------------
 RUN a2enmod rewrite
 
-# Configure Apache to trust proxy headers
-RUN echo "RemoteIPHeader X-Forwarded-For" >> /etc/apache2/apache2.conf && \
-    echo "RemoteIPInternalProxy 172.16.0.0/12" >> /etc/apache2/apache2.conf
+# ------------------------------------------------------------
+# 3️⃣ Set Apache DocumentRoot to Sngine's /Script folder
+# ------------------------------------------------------------
+ENV APACHE_DOCUMENT_ROOT /var/www/html/Script
 
-# restart server
-RUN service apache2 restart
+# Update Apache configuration to use the new DocumentRoot
+RUN sed -ri -e 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/sites-available/*.conf \
+ && sed -ri -e 's!/var/www/!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/apache2.conf /etc/apache2/conf-available/*.conf
 
-# listen to port 80
+# ------------------------------------------------------------
+# 4️⃣ Working directory (project root)
+# ------------------------------------------------------------
+WORKDIR /var/www/html
+
+# ------------------------------------------------------------
+# 5️⃣ Copy project files
+# ------------------------------------------------------------
+COPY . .
+
+# ------------------------------------------------------------
+# 6️⃣ Set server name and expose port
+# ------------------------------------------------------------
+RUN echo "ServerName localhost" >> /etc/apache2/apache2.conf
+COPY php-dev.ini /usr/local/etc/php/conf.d/php-dev.ini
+
 EXPOSE 80
 
-# run apache foreground
+# ------------------------------------------------------------
+# 7️⃣ Start Apache
+# ------------------------------------------------------------
 CMD ["apache2-foreground"]

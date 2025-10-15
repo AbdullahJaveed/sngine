@@ -7,7 +7,7 @@
  * @author Zamblek
  */
 
-// ** MySQL settings ** //
+// * MySQL settings * //
 /** The name of the database */
 define('DB_NAME', '');
 
@@ -24,15 +24,15 @@ define('DB_HOST', 'localhost');
 define('DB_PORT', '3306');
 
 
-// ** System URL ** //
+// * System URL * //
 define('SYS_URL', ''); // e.g (http://example.com)
 
 
-// ** Check URL ** //
+// * Check URL * //
 define('URL_CHECK', 'true');
 
 
-// ** i18n settings ** //
+// * i18n settings * //
 define('DEFAULT_LOCALE', 'en_us');
 
 
@@ -46,7 +46,7 @@ define('DEFAULT_LOCALE', 'en_us');
 define('DEBUGGING', false);
 
 
-// ** LICENCE ** //
+// * LICENCE * //
 /**
  * A unique key for your licence.
  */

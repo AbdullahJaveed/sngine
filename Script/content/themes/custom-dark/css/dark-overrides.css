@@ -1,0 +1,92 @@
+/* Dark theme overrides and variables for custom-dark theme */
+:root {
+  --body-bg-color: #1C242D;
+  --body-color: #d9e6ef;
+  --link-color: #ffff;
+  --header-bg-color: #202830;
+  --card-bg-color: #1C242D;
+  --card-border-color: #1a2329;
+  --muted-color: #ffff;
+  --accent-color: #7aa2ff;
+  --rounded-radius: 10px;
+}
+
+/* Ensure body uses dark background when theme is active */
+body {
+  background-color: var(--body-bg-color) !important;
+  color: var(--body-color) !important;
+}
+
+/* Card style modernized */
+.card,
+.panel,
+.dropdown-menu,
+.modal-content {
+  background-color: var(--card-bg-color) !important;
+  border-radius: var(--rounded-radius) !important;
+  border: 1px solid var(--card-border-color) !important;
+  color : white !important;
+}
+
+/* Header */
+.main-header {
+  background: var(--header-bg-color) !important;
+  border-bottom: 1px solid var(--card-border-color) !important;
+}
+
+/* Links and accents */
+a,
+.text-link {
+  color: var(--link-color) !important;
+}
+
+/* Muted text */
+.text-muted {
+  color: var(--muted-color) !important;
+}
+
+/* Buttons */
+.btn-primary {
+  background-color: var(--accent-color) !important;
+  border-color: rgba(122, 162, 255, 0.25) !important;
+  color: #fff !important;
+}
+
+/* Inputs */
+.form-control {
+  background: #182029 !important;
+  border: 1px solid var(--card-border-color) !important;
+  color: var(--body-color) !important;
+}
+
+/* Modern box shadows */
+.card,
+.panel,
+.dropdown-menu {
+  box-shadow: 0 6px 18px rgba(2, 6, 23, 0.6);
+  color: white !important;
+}
+
+/* Icon color tweaks */
+.header-icon,
+.action-icon {
+  color: var(--body-color) !important;
+  fill: var(--body-color) !important;
+}
+
+/* Small helper for elevated elements */
+.elevated {
+  box-shadow: 0 10px 30px rgba(2, 6, 23, 0.7);
+}
+
+/* Make avatars slightly rounded for modern look */
+.img-thumbnail,
+.avatar {
+  border-radius: 12px !important;
+}
+
+/* Utility: use when forcing theme apply */
+body.theme-custom-dark {
+  background-color: var(--body-bg-color) !important;
+  color: var(--body-color) !important;
+}

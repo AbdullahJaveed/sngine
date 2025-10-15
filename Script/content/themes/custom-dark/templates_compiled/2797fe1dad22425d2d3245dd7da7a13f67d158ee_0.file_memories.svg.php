@@ -1,0 +1,29 @@
+<?php
+/* Smarty version 5.5.2, created on 2025-10-15 07:33:37
+  from 'file:/var/www/html/Script/content/themes/custom-dark/templates/../images/svg/memories.svg' */
+
+/* @var \Smarty\Template $_smarty_tpl */
+if ($_smarty_tpl->getCompiled()->isFresh($_smarty_tpl, array (
+  'version' => '5.5.2',
+  'unifunc' => 'content_68ef4e51a9b5f4_66154471',
+  'has_nocache_code' => false,
+  'file_dependency' => 
+  array (
+    '2797fe1dad22425d2d3245dd7da7a13f67d158ee' => 
+    array (
+      0 => '/var/www/html/Script/content/themes/custom-dark/templates/../images/svg/memories.svg',
+      1 => 1760505191,
+      2 => 'file',
+    ),
+  ),
+  'includes' => 
+  array (
+  ),
+))) {
+function content_68ef4e51a9b5f4_66154471 (\Smarty\Template $_smarty_tpl) {
+$_smarty_current_dir = '/var/www/html/Script/content/themes/custom-dark/images/svg';
+?><svg width="29" height="29" viewBox="0 0 29 29" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M14.5 27.1875C7.49288 27.1875 1.8125 21.5053 1.8125 14.5C1.8125 7.49469 7.49288 1.8125 14.5 1.8125C21.5071 1.8125 27.1875 7.49469 27.1875 14.5C27.1875 21.5053 21.5071 27.1875 14.5 27.1875ZM14.5 0C6.49147 0 0 6.48875 0 14.5C0 22.5113 6.49147 29 14.5 29C22.5085 29 29 22.5113 29 14.5C29 6.48875 22.5085 0 14.5 0ZM19.9375 13.5938H15.4062V9.0625C15.4062 8.56406 15.0012 8.15625 14.5 8.15625C13.9988 8.15625 13.5938 8.56406 13.5938 9.0625V13.5938H9.0625C8.56134 13.5938 8.15625 14.0016 8.15625 14.5C8.15625 14.9984 8.56134 15.4062 9.0625 15.4062H13.5938V19.9375C13.5938 20.4359 13.9988 20.8438 14.5 20.8438C15.0012 20.8438 15.4062 20.4359 15.4062 19.9375V15.4062H19.9375C20.4387 15.4062 20.8438 14.9984 20.8438 14.5C20.8438 14.0016 20.4387 13.5938 19.9375 13.5938Z" fill="#878E94"/>
+</svg>
+<?php }
+}
